@@ -7,6 +7,9 @@
     <title>Ajay Pratap Singh | Node.js Developer</title>
     <meta name="description"
         content="Portfolio of Ajay Pratap Singh, an experienced Node.js Developer specializing in backend development, REST APIs, and cloud services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,10 +18,18 @@
 <body>
     <div class="scroll-progress"></div>
 
+    <div class="site-frame" aria-hidden="true"></div>
+
+    <!-- Status Badge -->
+    <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>Open to select projects</span>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Ajay.dev</a>
+            <a href="#" class="logo">Ajay<span>/</span>dev</a>
             <!-- ... rest of nav ... -->
             <div class="nav-links" id="nav-links">
                 <a href="#about" class="nav-link">About</a>
@@ -43,11 +54,10 @@
     <section class="hero" id="home">
         <div class="container hero-container reveal">
             <div class="hero-text">
-                <span class="hero-tagline">Hello, I'm</span>
+                <span class="hero-tagline">Full-Stack Developer</span>
                 <h1>Ajay Pratap Singh</h1>
-                <p id="typing-text">Node.js Developer | Backend Specialist | Cloud Services</p>
-                <p style="font-size: 1rem; margin-top: -1rem; color: var(--text-muted);">Building scalable backend
-                    systems and robust APIs using modern technologies.</p>
+                <p id="typing-text">Building reliable APIs and thoughtful web experiences.</p>
+                <p class="hero-summary">I turn product ideas into fast backend systems, clean dashboards, and integrations that stay calm under pressure.</p>
 
                 <div class="social-links" style="margin-bottom: 2rem; justify-content: start;">
                     <a href="https://linkedin.com/in/ajay-pratap-singh-883b44153" target="_blank" class="social-icon"
@@ -59,14 +69,44 @@
                 </div>
 
                 <div>
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary">Explore Work</a>
+                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                </div>
+
+                <div class="hero-metrics" aria-label="Developer highlights">
+                    <div>
+                        <span>API</span>
+                        <strong>REST, Auth, Payments</strong>
+                    </div>
+                    <div>
+                        <span>Stack</span>
+                        <strong>Node, React, SQL</strong>
+                    </div>
+                    <div>
+                        <span>Focus</span>
+                        <strong>Speed + Reliability</strong>
+                    </div>
                 </div>
             </div>
 
             <div class="profile-visual">
-                <div class="profile-img-container">
-                    <img src="https://github.com/apsinghrana100.png" alt="Ajay Pratap Singh">
+                <div class="build-card">
+                    <div class="build-card-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="profile-img-container">
+                        <img src="https://github.com/apsinghrana100.png" alt="Ajay Pratap Singh">
+                    </div>
+                    <div class="code-panel" aria-label="Developer workflow snapshot">
+                        <div><span class="code-key">role</span><span>Node.js Developer</span></div>
+                        <div><span class="code-key">ship</span><span>APIs, dashboards, cloud flows</span></div>
+                        <div><span class="code-key">mode</span><span>clean, scalable, pragmatic</span></div>
+                    </div>
+                    <div class="floating-chip chip-one">Express</div>
+                    <div class="floating-chip chip-two">AWS S3</div>
+                    <div class="floating-chip chip-three">PostgreSQL</div>
                 </div>
             </div>
         </div>
@@ -76,17 +116,64 @@
     <section class="about reveal" id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    I am an experienced Node.js Developer with hands-on experience in backend development, REST APIs,
-                    and cloud services.
-                    I have worked with technologies like Node.js, Express.js, MongoDB, Sequelize, and AWS.
-                </p>
-                <p>
-                    I have a strong foundation in computer science with a Master of Computer Application (MCA).
-                    Currently seeking challenging freelance or full-time opportunities where I can leverage my skills to
-                    build scalable applications.
-                </p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>
+                        I'm a <strong>backend-focused full-stack developer</strong> who builds fast, maintainable systems for real business use. My work spans REST APIs, database design, payment flows, authentication, and cloud-based file management.
+                    </p>
+                    <p>
+                        I enjoy turning complex requirements into simple, dependable software. I value clear communication, careful architecture, and code that stays understandable after the first release.
+                    </p>
+                    <p style="margin-top: 1.5rem; font-style: italic; color: var(--secondary-color);">
+                        Thoughtful engineering. Clean delivery. Practical results.
+                    </p>
+                </div>
+                <div class="about-facts">
+                    <div class="fact-card">
+                        <div class="fact-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="fact-title">2+</div>
+                        <div class="fact-text">Years Experience</div>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="fact-title">10+</div>
+                        <div class="fact-text">Projects Shipped</div>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon"><i class="fas fa-medal"></i></div>
+                        <div class="fact-title">100%</div>
+                        <div class="fact-text">Client Focus</div>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="fact-title">Lifelong</div>
+                        <div class="fact-text">Learner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section - NEW -->
+    <section class="values reveal" id="values">
+        <div class="container">
+            <h2>Working Principles</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Precision</h3>
+                    <p>I care about clear requirements, clean implementation, and dependable outcomes.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Collaboration</h3>
+                    <p>I keep communication direct, respectful, and useful from planning through delivery.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                    <h3>Growth</h3>
+                    <p>I keep improving my tools, patterns, and decisions with every project.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -158,8 +245,7 @@
                         <span class="timeline-date">Aug 2024 - Present</span>
                         <h3 class="timeline-title">Freelance Node.js Developer</h3>
                         <p class="timeline-subtitle">Remote</p>
-                        <p>Built backend services with Node.js, Express, and MongoDB/Sequelize. Integrated payment
-                            gateways, OAuth, and AWS S3 services.</p>
+                        <p>Delivering production-ready backend solutions for multiple clients. I build scalable REST APIs with Node.js and Express, improve database performance, and integrate services such as Stripe, PayPal, OAuth, and AWS S3. My focus is clean architecture, reliable error handling, and smooth collaboration with frontend teams.</p>
                     </div>
                 </div>
 
@@ -168,10 +254,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">Jan 2024 - July 2024</span>
-                        <h3 class="timeline-title">Trainee</h3>
+                        <h3 class="timeline-title">Full-Stack Developer Trainee</h3>
                         <p class="timeline-subtitle">Barone Budge & Dominick (BBD), Pune</p>
-                        <p>Worked on Vodacom project in South Africa (B2B dashboard). Developed server-side apps with
-                            Node.js and dynamic UIs with React.js using Styled Components.</p>
+                        <p>Contributed to a Vodacom B2B dashboard used by clients across South Africa. I developed REST APIs with Node.js and Express, implemented business logic for data workflows, built responsive React components, worked with PostgreSQL, added JWT authentication, and participated in Agile reviews with senior engineers.</p>
                     </div>
                 </div>
 
@@ -180,10 +265,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">Sep 2022 - Oct 2023</span>
-                        <h3 class="timeline-title">Trainee web Developer</h3>
-                        <p class="timeline-subtitle">sharpener.tech</p>
-                        <p>Completed Node.js training. Developed Real-time Chat application and Expense Tracker using
-                            Node.js and Express.</p>
+                        <h3 class="timeline-title">Full-Stack Development Trainee</h3>
+                        <p class="timeline-subtitle">Sharpener.tech</p>
+                        <p>Completed a focused 12-month full-stack program covering Node.js, REST API design, MVC architecture, authentication, databases, and deployment. Built projects including a real-time chat app with Socket.io and an expense tracker with user accounts and reporting features.</p>
                     </div>
                 </div>
 
@@ -194,7 +278,7 @@
                         <span class="timeline-date">2019 - 2022</span>
                         <h3 class="timeline-title">Master of Computer Application (MCA)</h3>
                         <p class="timeline-subtitle">Veer Narmad South Gujarat University</p>
-                        <p>Surat, India</p>
+                        <p>Postgraduate study focused on software development, database systems, algorithms, data structures, software engineering, and web technologies. Built a strong foundation in system design and analytical problem solving.</p>
                     </div>
                 </div>
 
@@ -204,8 +288,8 @@
                     <div class="timeline-content">
                         <span class="timeline-date">2016 - 2019</span>
                         <h3 class="timeline-title">Bachelor of Computer Application (BCA)</h3>
-                        <p class="timeline-subtitle">Shri Shambhubhai College</p>
-                        <p>Surat, Gujarat</p>
+                        <p class="timeline-subtitle">Shri Shambhubhai College, Surat</p>
+                        <p>Undergraduate study in programming, web technologies, relational databases, operating systems, and computer networks. Developed core programming skills through coursework and academic projects.</p>
                     </div>
                 </div>
 
@@ -290,18 +374,22 @@
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-container">
-                <form id="contact-form">
-                    <div class="form-group">
+                <form id="contact-form" action="https://formsubmit.co/apsinghrana100@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New portfolio message from Ajay.dev">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+                    <div class="form-group" data-animate>
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" data-animate>
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" data-animate>
                         <label for="message" class="form-label">Message</label>
-                        <textarea id="message" class="form-textarea" placeholder="How can I help you?"
+                        <textarea id="message" name="message" class="form-textarea" placeholder="How can I help you?"
                             required></textarea>
                     </div>
                     <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>

@@ -70,11 +70,11 @@ window.addEventListener('scroll', () => {
     // Navbar styling
     if (window.scrollY > 50) {
         navbar.style.padding = '0.5rem 0';
-        navbar.style.boxShadow = 'var(--shadow-md)';
-        navbar.style.background = 'rgba(3, 0, 20, 0.95)'; // Creating a deeper background on scroll
+        navbar.style.boxShadow = '0 14px 36px rgba(0, 0, 0, 0.22)';
+        navbar.style.background = 'var(--bg-nav)';
     } else {
-        navbar.style.padding = '1rem 0';
-        navbar.style.boxShadow = 'none';
+        navbar.style.padding = '0.75rem 0';
+        navbar.style.boxShadow = '0 12px 36px rgba(0, 0, 0, 0.18)';
         navbar.style.background = 'var(--bg-nav)';
     }
 
@@ -109,15 +109,17 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-// --- Entrance Animations ---
+// --- Entrance Animations with Enhanced Intersection Observer ---
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            // Keep observing for repeated animations on re-entry
         }
     });
 }, observerOptions);
@@ -125,18 +127,52 @@ const observer = new IntersectionObserver((entries) => {
 const revealElements = document.querySelectorAll('.reveal');
 revealElements.forEach(el => observer.observe(el));
 
-// --- Typing Effect ---
+const timelineItems = document.querySelectorAll('.timeline-item');
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        }
+    });
+}, {
+    threshold: 0.28,
+    rootMargin: '0px 0px -80px 0px'
+});
+
+timelineItems.forEach(item => timelineObserver.observe(item));
+
+// --- Enhanced Element Animation on Scroll ---
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            el.classList.add('animated');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// --- Enhanced Typing Effect with Better Cursor ---
 const typingElement = document.getElementById('typing-text');
 if (typingElement) {
     const text = typingElement.innerText;
     typingElement.innerText = '';
+    typingElement.style.opacity = '1';
 
     let i = 0;
     function typeWriter() {
         if (i < text.length) {
-            typingElement.innerHTML += text.charAt(i);
+            const char = text.charAt(i);
+            typingElement.innerHTML += char;
             i++;
-            setTimeout(typeWriter, 50);
+            // Variable typing speed for more natural feel
+            const speed = char === ' ' ? 30 : 40;
+            setTimeout(typeWriter, speed);
         } else {
             // Add Blinking Cursor after typing done
             typingElement.innerHTML += '<span class="cursor-blink"></span>';
@@ -144,31 +180,36 @@ if (typingElement) {
     }
 
     // Start delay
-    setTimeout(typeWriter, 500);
+    setTimeout(typeWriter, 800);
 }
 
 
 // --- Contact Form ---
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
+    contactForm.addEventListener('submit', () => {
         const submitBtn = document.getElementById('submit-btn');
-        const originalText = submitBtn.innerText;
         submitBtn.innerText = 'Sending...';
         submitBtn.disabled = true;
-
-        // Simulate sending
-        setTimeout(() => {
-            submitBtn.innerText = 'Message Sent!';
-            submitBtn.style.background = 'var(--secondary-color)';
-
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.innerText = originalText;
-                submitBtn.style.background = 'var(--gradient-main)'; /* Reset to gradient */
-                submitBtn.disabled = false;
-            }, 3000);
-        }, 1500);
     });
 }
+
+// --- Scroll Velocity Detection for Smooth Animations ---
+let lastScrollTop = 0;
+let scrollVelocity = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    scrollVelocity = scrollTop - lastScrollTop;
+    lastScrollTop = scrollTop;
+    
+    // Apply subtle effect based on scroll velocity
+    const elements = document.querySelectorAll('.skill-card');
+    elements.forEach((el, index) => {
+        const offsetTop = el.offsetTop;
+        const isInView = scrollTop + window.innerHeight > offsetTop && scrollTop < offsetTop + el.offsetHeight;
+        
+        if (isInView && scrollVelocity !== 0) {
+            el.style.transition = 'transform 0.3s ease-out';
+        }
+    });
+});
