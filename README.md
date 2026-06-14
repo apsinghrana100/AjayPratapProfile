@@ -1,38 +1,38 @@
-# Professional Personal Portfolio
+# Ajay Pratap Singh | Premium AI-Powered Portfolio
 
-This is a modern, responsive personal portfolio website built with HTML, CSS, and Vanilla JavaScript.
+Welcome to the source repository for my personal developer portfolio, redesigned into a premium, interactive, AI-inspired Jarvis OS experience.
 
-## Features
+## 🚀 Key Features
 
-- **Responsive Design**: Works on mobile, tablet, and desktop.
-- **Dark/Light Mode**: Toggle between themes with automatic preference saving.
-- **Smooth Animations**: Scroll-triggered entrance animations.
-- **Interactive UI**: Hover effects, sticky navigation, and scroll spy.
-- **Clean Code**: Semantic HTML and organized CSS/JS.
+* **3D Background Constellations**: GPU-accelerated backdrop network of synapse connections reacting dynamically to mouse movements using Three.js and React Three Fiber.
+* **Interactive Spotlight & Particle Trails**: Responsive canvas trails and glowing spotlight masks focusing cursor interactions.
+* **Skill Node Constellations**: Custom 2D Canvas charting technical competencies with active pulsing vectors.
+* **Interactive Command Line Terminal**: A simulator terminal processing custom user commands (`about`, `skills`, `projects`, `contact`, `clear`, etc.).
+* **Asymmetric Split-Pane Layout**: Modern sidebar information dock alongside scroll-spied details.
+* **SEO Optimization**: Fully optimized structure with OpenGraph metadata and JSON-LD schema markup.
 
-## Technology Stack
+## 🛠️ Tech Stack
 
-- HTML5
-- CSS3 (Custom properties, Flexbox, Grid)
-- JavaScript (ES6+)
-- Font Awesome (Icons)
-- Google Fonts (Inter, Playfair Display)
+* **Framework**: React 19 + Vite
+* **WebGL & 3D**: Three.js + React Three Fiber + React Three Drei
+* **Animations**: Framer Motion
+* **Icons**: FontAwesome & Lucide-React
+* **Styling**: Modern Vanilla CSS variables (with Dark & Light themes)
 
-## How to Run
+## 💻 Local Development
 
-Simply open `index.html` in your web browser. 
+To run the portfolio application locally:
 
-For the best experience during development, you can use a local server like Live Server in VS Code, or:
+1. **Install dependencies**:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+2. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+3. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-```bash
-npx serve .
-```
-
-## Structure
-
-- `index.html`: Main content
-- `style.css`: Styles and design system
-- `script.js`: Logic and interactivity
-- `assets/`: Images and resources
-
-Enjoy your new portfolio!
